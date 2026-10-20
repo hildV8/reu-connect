@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#8B1E3F">
-<title>РЭУ.Коннект — интерфейс сайта</title>
+<title>Коннект — интерфейс сайта</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
 <style>
@@ -85,7 +85,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--rose)}
 .search input{padding-left:44px;border-radius:999px}
 .tools select{width:auto;border-radius:999px;font-weight:600;font-size:14px;padding:11px 16px}
 .chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:22px;scrollbar-width:none}
-.chip{display:flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:var(--card);border:2px solid var(--line);font-weight:600;font-size:14px;white-space:nowrap}
+.chip{flex:0 0 auto;min-width:auto;display:flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:var(--card);border:2px solid var(--line);font-weight:600;font-size:14px;white-space:nowrap}
 .chip:hover{border-color:var(--rose)}
 .chip.on{background:var(--bordo);border-color:var(--bordo);color:var(--cream)}
 .week{background:var(--bordo);color:var(--cream);border-radius:24px;padding:24px;margin-bottom:26px;display:grid;grid-template-columns:200px 1fr;gap:22px;align-items:center}
@@ -178,6 +178,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--rose)}
   .form{padding:22px}
   input[type=text],input[type=email],input[type=date],input[type=time],input[type=number],select,textarea{font-size:16px;min-height:48px}
   .tools select{width:100%;flex:1 1 140px}
+  .tools #fFac{flex-basis:100%}
   .btn{min-height:46px}.btn.sm{min-height:44px;padding:10px 16px}
   .q{flex-wrap:wrap}.q .btns{width:100%}
   .top-in{padding:10px 16px}
@@ -194,9 +195,9 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--rose)}
 <body>
 <div class="demo">Демо-макет интерфейса: события, участники и сообщения вымышлены</div>
 <header class="top"><div class="top-in">
-  <div class="logo" id="logo" role="button" tabindex="0" aria-label="РЭУ.Коннект, на главную">
+  <div class="logo" id="logo" role="button" tabindex="0" aria-label="Коннект, на главную">
     <svg viewBox="0 0 480 640" aria-hidden="true"><path d="M200 420 Q240 620 280 420 Z" fill="#F4C2CF"/><path d="M140 330 L60 460 L140 430 Z" fill="#F4C2CF"/><path d="M340 330 L420 460 L340 430 Z" fill="#F4C2CF"/><path d="M240 40 C330 120 350 260 340 410 L140 410 C130 260 150 120 240 40 Z" fill="#FFF4EC"/><circle cx="240" cy="210" r="50" fill="#F4C2CF" stroke="#8B1E3F" stroke-width="10"/></svg>
-    <span>РЭУ.Коннект</span>
+    <span>Коннект</span>
   </div>
   <nav class="nav" id="nav" aria-label="Основное меню"></nav>
   <div class="spacer"></div>
@@ -255,7 +256,7 @@ var events=[
  {id:1,cat:'expo',title:'Идём на выставку современного искусства',when:at(5,14,0),place:'Музей на Крымском Валу',host:'Мария К.',total:4,taken:2,course:2,fac:'Экономики',week:true,desc:'Встречаемся у входа за 10 минут до начала. После выставки можно выпить кофе и обсудить увиденное.'},
  {id:2,cat:'sport',title:'Волейбол после пар',when:at(1,18,30),place:'Спортзал, главный корпус',host:'Артём Л.',total:10,taken:6,course:1,fac:'Менеджмента',week:true,desc:'Играем для удовольствия, уровень любой. Форму и воду берите с собой.'},
  {id:3,cat:'cinema',title:'Кино в субботу: новая премьера',when:at(3,19,0),place:'Кинотеатр у метро Серпуховская',host:'Дарья С.',total:5,taken:3,course:1,fac:'Информатики',week:true,desc:'Берём билеты вместе на один ряд. Фильм выберем голосованием в чате.'},
- {id:4,cat:'study',title:'Совместная подготовка к статистике',when:at(2,16,0),place:'Библиотека РЭУ',host:'Игорь П.',total:6,taken:2,course:2,fac:'Экономики',week:false,desc:'Разбираем задачи по теории вероятностей, обмениваемся конспектами.'},
+ {id:4,cat:'study',title:'Совместная подготовка к статистике',when:at(2,16,0),place:'Библиотека университета',host:'Игорь П.',total:6,taken:2,course:2,fac:'Экономики',week:false,desc:'Разбираем задачи по теории вероятностей, обмениваемся конспектами.'},
  {id:5,cat:'walk',title:'Прогулка по набережной и кофе',when:at(0,17,30),place:'Начало — у выхода из метро',host:'Алина В.',total:5,taken:1,course:1,fac:'Права',week:false,desc:'Неспешная прогулка, знакомимся с ребятами с других курсов.'},
  {id:6,cat:'theatre',title:'Поход в театр на вечерний спектакль',when:at(6,19,0),place:'Театр на Таганке',host:'Софья Н.',total:3,taken:2,course:3,fac:'Менеджмента',week:true,desc:'Ищем ещё одного человека. Билеты уже у меня, оплата на месте.'},
  {id:7,cat:'sport',title:'Утренняя пробежка в парке',when:at(4,8,0),place:'Парк Горького',host:'Никита Р.',total:8,taken:3,course:4,fac:'Информатики',week:false,desc:'Темп спокойный, 5 км. Новичкам тоже рады.'}
@@ -305,7 +306,7 @@ function chrome(){
   b+='<button data-go="'+n[0]+'" class="'+(cur===n[0]?'on':'')+'">'+ic(n[2])+n[1]+badge+'</button>';
  });
  nav.innerHTML=h;bot.innerHTML=b;
- me.innerHTML='<div class="nm" style="text-align:right"><div>Студент РЭУ</div><div class="verified">'+ic('shield').replace('class="i"','class="i" style="width:13px;height:13px"')+'Верифицирован</div></div><div class="ava">ВЫ</div>';
+ me.innerHTML='<div class="nm" style="text-align:right"><div>Студент</div><div class="verified">'+ic('shield').replace('class="i"','class="i" style="width:13px;height:13px"')+'Верифицирован</div></div><div class="ava">ВЫ</div>';
 }
 
 /* ---------- views ---------- */
@@ -314,9 +315,9 @@ function vLogin(){
  var right;
  if(S.stage==='form'){
   right='<form class="card form" id="loginForm" novalidate>'
-   +'<div class="eyebrow">Вход для студентов</div><h2>Подтвердите, что вы из РЭУ</h2>'
+   +'<div class="eyebrow">Вход для студентов</div><h2>Подтвердите, что вы студент</h2>'
    +'<div class="steps"><span><i>1</i>Данные</span><span><i>2</i>Проверка</span><span><i>3</i>Доступ</span></div>'
-   +'<label>Студенческая почта<input type="email" id="lEmail" placeholder="name@stud.rea.ru" autocomplete="email"></label>'
+   +'<label>Студенческая почта<input type="email" id="lEmail" placeholder="name@university.ru" autocomplete="email"></label>'
    +'<label>Фото студенческого билета<span class="drop" id="drop" tabindex="0" role="button">'+ic('upload')+'<span><b id="dropT">Загрузите фото</b><br>Видны ФИО и номер билета</span></span></label>'
    +'<input type="file" id="lFile" accept="image/*" hidden>'
    +'<label style="flex-direction:row;align-items:flex-start;gap:10px;font-weight:500"><input type="checkbox" id="lAgree" style="margin-top:4px;accent-color:#8B1E3F"> Согласен на обработку персональных данных (ФЗ-152) и принимаю правила сообщества</label>'
@@ -329,9 +330,9 @@ function vLogin(){
    +'<button class="btn" data-act="enter">Посмотреть сайт в демо-режиме</button><button class="btn ghost" data-act="back-form">Изменить данные</button></div>';
  }
  return '<div class="login"><section class="hero"><span class="circle"></span>'+rocket
-  +'<div class="hero-in"><div class="eyebrow" style="color:#F4C2CF">Закрытое сообщество</div><h1>Найди свою компанию в РЭУ</h1>'
+  +'<div class="hero-in"><div class="eyebrow" style="color:#F4C2CF">Закрытое сообщество</div><h1>Найди свою компанию</h1>'
   +'<p>Спорт, кино, выставки и учёба с ребятами из твоего университета. Только подтверждённые студенты.</p>'
-  +'<div class="pills"><span class="pill">РЭУ</span><span class="pill">+ connect</span><span class="pill cream">= соединять</span></div></div></section>'+right+'</div>';
+  +'<div class="pills"><span class="pill">Коннект</span><span class="pill">от англ. connect</span><span class="pill cream">= соединять</span></div></div></section>'+right+'</div>';
 }
 
 function filtered(){
@@ -365,7 +366,7 @@ function vFeed(){
  cs+='</select>';
  var fs='<select id="fFac" aria-label="Факультет">'+FACS.map(function(f){return '<option'+(S.fac===f?' selected':'')+'>'+f+'</option>';}).join('')+'</select>';
  var ds='<select id="fDate" aria-label="Дата"><option value="any"'+(S.date==='any'?' selected':'')+'>Любая дата</option><option value="today"'+(S.date==='today'?' selected':'')+'>Сегодня</option><option value="week"'+(S.date==='week'?' selected':'')+'>Ближайшие 7 дней</option></select>';
- return '<div class="head"><div><div class="eyebrow">Афиша</div><h1>С кем сходить на выставку?</h1><p class="sub">Ближайшие встречи студентов РЭУ. Нажмите «Я с вами!», чтобы присоединиться.</p></div><button class="btn" data-go="create">'+ic('plus')+'Создать приглашение</button></div>'
+ return '<div class="head"><div><div class="eyebrow">Афиша</div><h1>С кем сходить на выставку?</h1><p class="sub">Ближайшие встречи студентов. Нажмите «Я с вами!», чтобы присоединиться.</p></div><button class="btn" data-go="create">'+ic('plus')+'Создать приглашение</button></div>'
   +'<div class="week"><div><h2>Выставки недели</h2><p>Подборка встреч от студентов</p></div><div class="strip">'+week+'</div></div>'
   +'<div class="tools"><div class="search">'+ic('search')+'<input type="text" id="fQ" placeholder="Поиск по названию или месту" value="'+esc(S.q)+'" aria-label="Поиск"></div>'+cs+fs+ds+'</div>'
   +'<div class="chips" role="group" aria-label="Категории">'+chips+'</div>'
@@ -394,11 +395,11 @@ function vEvent(){
   +chatPane(e.id,'Чат встречи')+'</div>';
 }
 function vChats(){
- var items='<button class="li '+(S.chat==='general'?'on':'')+'" data-chat-open="general"><span class="ava">'+ic('users').replace('class="i"','class="i" style="width:18px;height:18px"')+'</span><span><b>Общий чат РЭУ.Коннект</b><small>Знакомства и обсуждения</small></span></button>';
+ var items='<button class="li '+(S.chat==='general'?'on':'')+'" data-chat-open="general"><span class="ava">'+ic('users').replace('class="i"','class="i" style="width:18px;height:18px"')+'</span><span><b>Общий чат Коннект</b><small>Знакомства и обсуждения</small></span></button>';
  events.filter(function(e){return S.joined[e.id];}).forEach(function(e){
   items+='<button class="li '+(String(S.chat)===String(e.id)?'on':'')+'" data-chat-open="'+e.id+'"><span class="ava">'+ic(cat(e.cat).icon).replace('class="i"','class="i" style="width:18px;height:18px"')+'</span><span><b>'+esc(e.title)+'</b><small>'+fmt(e.when)+'</small></span></button>';
  });
- var cur=S.chat==='general'?'Общий чат РЭУ.Коннект':(ev(+S.chat)?ev(+S.chat).title:'Чат');
+ var cur=S.chat==='general'?'Общий чат Коннект':(ev(+S.chat)?ev(+S.chat).title:'Чат');
  return '<div class="head"><div><div class="eyebrow">Чаты</div><h1>Общение вокруг дела</h1><p class="sub">Общий чат и отдельный чат у каждой встречи, к которой вы присоединились.</p></div></div>'
   +'<div class="chats"><div class="card list">'+items+'</div>'+chatPane(S.chat,cur)+'</div>';
 }
@@ -459,7 +460,7 @@ function bindCreate(){
   var w=new Date(dt+'T'+tm);
   var e={id:nextId++,cat:document.getElementById('cCat').value,title:t,when:w,place:pl,host:'Вы',total:n+1,taken:1,course:2,fac:FACS[1],week:false,desc:document.getElementById('cDesc').value.trim()||'Подробности обсудим в чате встречи.'};
   events.unshift(e);S.joined[e.id]=true;e.taken=0;chats[e.id]=[{a:'Вы',me:true,t:'Приглашение создано. Пишите, если есть вопросы!'}];
-  S.cat='all';S.q='';S.course='0';S.fac=FACS[0];S.date='any';S.view='feed';render();toast('Приглашение опубликовано. Его уже видят студенты РЭУ.');
+  S.cat='all';S.q='';S.course='0';S.fac=FACS[0];S.date='any';S.view='feed';render();toast('Приглашение опубликовано. Его уже видят студенты.');
  });
 }
 
