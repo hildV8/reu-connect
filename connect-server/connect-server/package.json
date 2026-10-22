@@ -1,8 +1,0 @@
-{
-  "name": "connect-server",
-  "version": "1.0.0",
-  "description": "Коннект: сайт и сервер (без внешних зависимостей)",
-  "main": "server.js",
-  "scripts": { "start": "node server.js" },
-  "engines": { "node": ">=18" }
-}
