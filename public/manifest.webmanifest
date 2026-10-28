@@ -1,0 +1,14 @@
+{
+  "name": "Коннект",
+  "short_name": "Коннект",
+  "description": "Найди свою компанию",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF4EC",
+  "theme_color": "#8B1E3F",
+  "lang": "ru",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
