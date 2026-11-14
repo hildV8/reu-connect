@@ -73,3 +73,12 @@
 ## Данные пользователей
 
 В сборке нет скрипта, который добавляет или удаляет пользователей. `/api/stats` по-прежнему считает реальные пользовательские записи из базы данных (`users`, исключая системную запись команды). Никакие фиктивные аккаунты не создаются.
+
+## UI update: theme switch and recommendations
+
+- Added a light/dark theme switch in the top bar. The selected theme is stored in browser localStorage under `connect_theme` and is shared by the regular site and Telegram Mini App in the same browser context.
+- Added a dedicated **Рекомендации** navigation item and page. Recommendations are loaded from the existing `/api/feed` endpoint; the events feed remains available separately.
+- Kept the existing navigation destinations, profile, events, chats, moderation, communities, and Telegram settings.
+- Added clearer spacing and page hierarchy around recommendations and the feed.
+
+No database file or user records are included in this release archive. Deploy the updated `public/index.html` together with the existing REU CONNECT 2.0 server files.
